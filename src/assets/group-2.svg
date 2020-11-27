@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="248" height="248" viewBox="0 0 248 248">
+    <defs>
+        <filter id="xaaf10te8a" width="541.7%" height="541.7%" x="-220.8%" y="-195.8%" filterUnits="objectBoundingBox">
+            <feMorphology in="SourceAlpha" radius="9.5" result="shadowSpreadOuter1"/>
+            <feOffset dy="15" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+            <feMorphology in="SourceAlpha" operator="dilate" radius="9.5" result="shadowInner"/>
+            <feOffset dy="15" in="shadowInner" result="shadowInner"/>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="42"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.917647059 0 0 0 0 0.431372549 0 0 0 0 0.231372549 0 0 0 0.427174388 0"/>
+        </filter>
+        <circle id="4ogqj1zlwb" cx="30" cy="30" r="30"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g transform="translate(-559 -197) translate(653 276)">
+                    <use fill="#000" filter="url(#xaaf10te8a)" xlink:href="#4ogqj1zlwb"/>
+                    <use stroke="#EC820E" stroke-width="2" xlink:href="#4ogqj1zlwb"/>
+                </g>
+                <path stroke="#F29531" stroke-width="3" d="M26.5 23.5L34.5 31.626 29.7 36.5" transform="translate(-559 -197) translate(653 276) rotate(90 30.5 30)"/>
+            </g>
+        </g>
+    </g>
+</svg>
