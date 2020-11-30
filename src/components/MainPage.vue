@@ -18,14 +18,15 @@
     <step-2 v-show="step === 2" :purposes="purposes" @nextStep="nextStep" />
     <step-3 v-show="step === 3" @updateForm="updateForm" />
     <step-4 v-show="step === 4" @updateForm="updateForm" />
-    <step-5 v-show="step === 5 || step === 6" @updateForm="updateForm" />
+    <step-5 v-show="step === 5 || step === 6" @updateForm="updateForm" :name="getName" />
 
     <section class="step-buttons mt-3" v-if="showStepsNavigationSection">
+      {{getName}}
       <a @click="previousStep" class="btn orange-text--onhover"><span class="orange--text fw-5 mr-0"> &lt; </span> Back</a>
-      <a v-show="step != 2" @click="nextStep" class="btn rounded-btn btn--orange orange--bg white--text">Next Step > </a>
+      <button v-show="step != 2" :disabled="!validateStep" @click="nextStep" class="btn rounded-btn btn--orange orange--bg white--text">Next Step > </button>
     </section>
 
-    <p class="mt-5 grey--text">
+    <p class="mt-5 grey--text fs--xs">
       The final form: <br>
       {{form}}
     </p>
@@ -50,7 +51,8 @@ export default {
   },
   data: () => ({
     step: 0,
-    totalSteps: 5,   
+    totalSteps: 5,
+    currentStepIsValid: false,   
     form: {
       propertyType: null,
       purpose: null,
@@ -73,11 +75,30 @@ export default {
     ]
   }),
   computed: {
+    getName(){
+      if(this.form.contactDetails && this.form.contactDetails.first_name){
+        return this.form.contactDetails.first_name + ' ' + this.form.contactDetails.last_name
+      }else {
+        return ''
+      }
+    },
     showStepsNavigationSection(){
-      if(!this.step || this.step === 1) {
+      if(!this.step || this.step === 1 || this.step === 5) {
         return false
       }else{
         return true
+      }
+    },
+    validateStep(){
+      switch (this.step) {
+        case 3:
+          // If the amount is empty or zero then next step will be invalid
+          return this.form.loanAmount > 0 ? true : false
+        case 4:
+          //must accept terms
+          return (this.form.contactDetails && this.form.contactDetails.accepted_terms )? true : false
+        default:
+          return true
       }
     }
   },
@@ -89,12 +110,15 @@ export default {
       }
     },
     nextStep(val){
-      this.step < this.totalSteps ? this.step++ : this.totalSteps
+      if(this.validateStep){
+        this.step < this.totalSteps ? this.step++ : this.totalSteps
 
-      // The val object is OPTIONAL but should have this structure { prop: 'name_of_prop_in_FORM', value: 'value_to_change'}
-      if(val){
-        this.updateForm(val)
+        // The val object is OPTIONAL but should have this structure { prop: 'name_of_prop_in_FORM', value: 'value_to_change'}
+        if(val){
+          this.updateForm(val)
+        }
       }
+      
     },
     previousStep(){
       this.step > 0 ? this.step-- :  0

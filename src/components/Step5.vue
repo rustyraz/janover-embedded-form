@@ -4,7 +4,7 @@
           <img :src="require('@/assets/orange-tick.png')" width="200px" alt="">
       </div>
       <h2 class="white--text header-title mb-0 mt-0">
-          Thanks, Yevhenii.
+          Thanks, {{name}}.
           <br>
           Your Information Has Been Received!
       </h2>
@@ -30,7 +30,10 @@
               Can you please share your 5 star experience by leaving us a Google Review?
           </div>
           <div class="flex--1">
-              <img :src="require('@/assets/google-icon_2.svg')" width="50px" alt="">
+              <div class="google_btn">
+                 <img :src="require('@/assets/google-icon_2.svg')" width="50px" alt=""> 
+              </div>
+              
           </div>
       </div>
   </div>
@@ -38,6 +41,12 @@
 
 <script>
 export default {
+    props: {
+        name: {
+            type: String,
+            default: ""
+        }
+    },
     data: () => ({
         selected_stars: 3, //by default we set the star rating to 3,
         already_selected_rating: false

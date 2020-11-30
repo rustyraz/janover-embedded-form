@@ -7,29 +7,44 @@
       <div class="d-flex justify-content--space-between">
 
           <div class="form-group">
+            <span v-show="validInput('first_name')" class="valid_input_icon">
+                <img :src="require('@/assets/stroke-1.png')" alt="">
+            </span>
               <label>First name</label>
-              <input type="text" v-model="form.first_name" @keyup="updateForm" placeholder="John" class="input-field">
+              <input type="text" v-model.trim="form.first_name" @keyup="updateForm" placeholder="John" class="input-field">
           </div>
 
           <div class="form-group">
+              <span v-show="validInput('last_name')" class="valid_input_icon">
+                <img :src="require('@/assets/stroke-1.png')" alt="">
+            </span>
               <label>Last name</label>
-              <input type="text" v-model="form.last_name" @keyup="updateForm" placeholder="Appleseed" class="input-field">
+              <input type="text" v-model.trim="form.last_name" @keyup="updateForm" placeholder="Appleseed" class="input-field">
           </div>
 
           <div class="form-group">
+              <span v-show="validInput('phone_number')" class="valid_input_icon">
+                <img :src="require('@/assets/stroke-1.png')" alt="">
+            </span>
               <label>Phone Number</label>
-              <input type="tel" placeholder="(123) 456 7890" @keyup="updateForm" class="input-field" v-model="form.phone_number">
+              <input type="tel" placeholder="(123) 456 7890" @keyup="updateForm" class="input-field" v-model.trim="form.phone_number">
           </div>
 
           <div class="form-group">
+              <span v-show="validInput('email') && validateEmail(form.email)" class="valid_input_icon">
+                <img :src="require('@/assets/stroke-1.png')" alt="">
+            </span>
               <label>Email Address</label>
-              <input type="text" placeholder="me@company.com" @keyup="updateForm" v-model="form.email" class="input-field">
+              <input type="text" placeholder="me@company.com" @keyup="updateForm" v-model.trim="form.email" class="input-field">
           </div>
 
       </div>
       <div class="d-flex">
         <div class="p1">
-            <input type="checkbox" v-model="form.accepted_terms" @click="updateForm" class="input-field ml-1">
+            <label for="terms">
+                <input id="terms" type="checkbox" v-model.trim="form.accepted_terms" @change="updateForm" class="input-field ml-1 mt-0 custom_checkbox">
+                <span class="checkmark"></span>
+            </label>
         </div>
         <div class="fs--sm flex--1 p-1 text--left">
             By checking this box, I confirm that I 
@@ -54,11 +69,39 @@ export default {
             phone_number: '',
             email: '',
             accepted_terms: false
-        }
+        },
     }),
+    computed: {
+        checkEmptyInput(){
+            //CHECKING FOR THE EMPTY FIELDS
+            if(
+                (this.form.first_name && this.form.first_name !='') 
+                && (this.form.last_name && this.form.last_name !='')
+                && (this.form.email && this.form.email !='') 
+                && (this.form.phone_number && this.form.phone_number != '')
+                && this.form.accepted_terms
+            ){
+                return true
+            }else return false
+        }
+    },
     methods: {
         updateForm(){
-            this.$emit('updateForm', { prop: "contactDetails", value: this.form})
+            //validate form input
+            if(this.checkEmptyInput && this.validateEmail(this.form.email)){
+                this.$emit('updateForm', { prop: "contactDetails", value: this.form})
+            }else{
+                this.$emit('updateForm', { prop: "contactDetails", value: null})
+            }            
+        },
+        validInput(name){
+            return (this.form[name] != '') ? true : false
+        },
+        validateEmail(email) {
+            const pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
+           if(pattern.test(email)) {
+               return true
+           }else return false
         }
     }
 }
