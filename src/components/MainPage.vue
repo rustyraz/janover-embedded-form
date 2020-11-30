@@ -21,7 +21,6 @@
     <step-5 v-show="step === 5 || step === 6" @updateForm="updateForm" :name="getName" />
 
     <section class="step-buttons mt-3" v-if="showStepsNavigationSection">
-      {{getName}}
       <a @click="previousStep" class="btn orange-text--onhover"><span class="orange--text fw-5 mr-0"> &lt; </span> Back</a>
       <button v-show="step != 2" :disabled="!validateStep" @click="nextStep" class="btn rounded-btn btn--orange orange--bg white--text">Next Step > </button>
     </section>
