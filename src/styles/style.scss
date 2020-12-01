@@ -7,6 +7,9 @@ body {
     height: 100vh;
     background-color: #{$dark-blue};
 }
+a{
+    cursor: pointer;
+}
 
 /*============ MARGINS ============*/
 .ma-1 { margin: 0.5rem; }
@@ -81,10 +84,15 @@ body {
 }
 .fs--sm {
     font-size: 10px;
-    line-height: 17px;
 }
 .fs--md {
-    font-size: 14px;
+    font-size: 15px;
+}
+.fs--lg {
+    font-size: 25px;
+}
+.fs--xl {
+    font-size: 35px;
 }
 /*========== TOPOGRAPHY =========*/
 
@@ -107,6 +115,9 @@ body {
 .opaque--bg{
     background-color: rgba(255, 255, 255, 0.06);
     border-radius: 13px;
+}
+.blue--bg {
+    background-color: #{$blue};
 }
 /*=========== BACKGROUND COLORS ========*/
 
@@ -152,15 +163,20 @@ body {
 .align-items--center{
     align-items: center;
 }
-
+@media only screen and (min-width: 768px) {
+    .white-form-option-box {
+        min-width: 220px;
+        max-width: 220px;
+    }
+}
 .white-form-option-box {
-    min-width: 220px;
-    max-width: 220px;
+    //min-width: 220px;
+    //max-width: 220px;
     height: 74px;
     font-size: 15px;
     margin: 0.5rem;
     padding: 1.5rem;
-    font-weight: 500;
+    font-weight: 600;
     object-fit: contain;
     border-radius: 8px;
     border: solid 0 #{$grey};
@@ -173,10 +189,30 @@ body {
 }
 /*=====  FLEX BOX ====*/
 
+/*============== SMALL SCREEN =========*/
+@media only screen and (max-width: 768px) {
+    // FOR SMALL DEVICES
+    .d-flex {
+        flex-direction: row !important;
+    }
+    .white-form-option-box {
+        min-width: 98%;
+        max-width: 98%;
+        align-items: center;
+    }
+    .form-group{
+        min-width: 98%;
+        .input-field{
+            width: 98% !important;
+        }
+    }
+
+}
+/*============== SMALL SCREEN =========*/
+
 /*============= FORM ELEMENTS ==============*/
 
 .form-group{
-    width: 250ppx;
     text-align: left;
     padding: 0.5rem;
     position: relative;
@@ -193,11 +229,12 @@ body {
         margin: 0.5rem;
         display: block;
         font-size: 17px;
+        font-weight: 600;
         color: #{$dark-blue};
     }
     .prepend_label{
         position: absolute;
-        top: 3.8rem;
+        top: 3.7rem;
         left: 1.9rem;
         font-size: 15px;
         color: #{$grey};
@@ -207,9 +244,9 @@ body {
         position: absolute;
         background-image: url('~@/assets/valid-input-combined-shape.png');
         background-repeat: no-repeat;
-        right: 1.1rem;
-        top: 2.7rem;
-        border-radius: 0px 2px;
+        right: 16px;
+        top: 2.6rem;
+        border-radius: 0px 8px;
         color: #{$orange};
         padding-right: 0.2rem;
         padding-top: 0;
@@ -257,6 +294,10 @@ body {
     list-style: none;
     display: flex;
     padding: 0;
+
+    li.active:before {
+        border-color: #55b776;
+    }
   
     &__item {
       display: flex;
@@ -295,13 +336,13 @@ body {
   
       &--active {
         &:before {
-          background: #{$orange};
+          background: #{$white};
           border: solid #{$orange};
         }
-        &:after {
-            //border: 1px solid #{$orange};
-            background: #{$orange};
-        }
+        // &:after {
+        //     //border: 1px solid #{$orange};
+        //     //background: #{$orange};
+        // }
       }
   
       &--complete {
@@ -338,16 +379,65 @@ body {
 .google_btn{
     cursor: pointer;
     border-radius: 8px;
-    height: 74px;
-    width: 280px;
-    border: 1px solid #{$grey};
-    padding-top: 0.5rem;
-    margin: 0.5rem auto;
+    position: relative;
+    max-height: 74px;
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+
+    .logo_section{
+        text-align: center;
+        background-color: #{$white};
+        border-radius: 8px 0px 0px 8px;
+        border: 1px solid #{$white};
+        padding: 1px;
+    }
+    .blue_section{
+        text-align: center;
+        background-color: #{$blue};
+        border-radius: 0px 8px 8px 0px;
+        border: 1px solid #{$blue};
+        padding: 4px;
+        max-height: 74px;
+        max-width: 199px;
+        font-size: 13px;
+
+        p {
+            margin: 1rem;
+        }
+    }
 }
 /*========= GOOGLE BUTTON =========*/
+
+/*======= MODAL ==========*/
+.popup-modal{
+    background-color:rgba(9, 25, 43, 0.8);
+    position: relative;
+    height: 100%;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+
+
+    .popup-text-section{
+        position: relative;
+        margin: auto;
+        z-index: 41;
+        border-radius: 13px;
+        max-width: 640px;
+        min-width: 640px;
+        height: 380px;
+
+    }
+}
+/*======= MODAL ==========*/
 
 /*====== STAR RATING ====*/
 .star-rating:hover{
     cursor: pointer;
 }
 /*====== STAR RATING ====*/
+

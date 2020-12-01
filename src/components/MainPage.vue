@@ -1,7 +1,7 @@
 <template>
   <div class="container dark-blue--bg white--text">
     <!-- STEP PROGRESS SECTION -->
-    <div class="mb-5">
+    <div class="mb-4">
       <ul class="step-progressbar">
         <li
           v-for="current_step in totalSteps"
@@ -20,7 +20,7 @@
     <step-4 v-show="step === 4" @updateForm="updateForm" />
     <step-5 v-show="step === 5 || step === 6" @updateForm="updateForm" :name="getName" />
 
-    <section class="step-buttons mt-3" v-if="showStepsNavigationSection">
+    <section class="step-buttons mt-2" v-if="showStepsNavigationSection">
       <a @click="previousStep" class="btn orange-text--onhover"><span class="orange--text fw-5 mr-0"> &lt; </span> Back</a>
       <button v-show="step != 2" :disabled="!validateStep" @click="nextStep" class="btn rounded-btn btn--orange orange--bg white--text">Next Step > </button>
     </section>
@@ -125,7 +125,7 @@ export default {
     getStepClass(value){
       if(value < this.step){
         return "step-progressbar__item--complete"
-      }else if(value == this.step){
+      }else if(value  == this.step){
         return "step-progressbar__item--active"
       }else{
         return ""
