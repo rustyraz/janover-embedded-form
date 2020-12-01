@@ -163,12 +163,7 @@ a{
 .align-items--center{
     align-items: center;
 }
-@media only screen and (min-width: 768px) {
-    .white-form-option-box {
-        min-width: 220px;
-        max-width: 220px;
-    }
-}
+
 .white-form-option-box {
     //min-width: 220px;
     //max-width: 220px;
@@ -189,9 +184,26 @@ a{
 }
 /*=====  FLEX BOX ====*/
 
+/*================== FOR LARGE SCREENS ==================*/
+@media only screen and (min-width: 768px) {
+    .white-form-option-box {
+        min-width: 220px;
+        max-width: 220px;
+    }
+    .container{
+        max-width: 760px;
+        min-width: 760px;
+    }
+}
+/*================== FOR LARGE SCREENS ==================*/
+
 /*============== SMALL SCREEN =========*/
 @media only screen and (max-width: 768px) {
     // FOR SMALL DEVICES
+    .container{
+        max-width: 100% !important;
+        min-width: 100% !important;
+    }
     .d-flex {
         flex-direction: row !important;
     }
@@ -370,8 +382,8 @@ a{
 
 .container{
     margin: auto;
-    max-width: 760px;
-    min-width: 760px;
+    // max-width: 760px;
+    // min-width: 760px;
     height: 100vh;
 }
 
