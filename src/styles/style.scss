@@ -187,13 +187,13 @@ a{
 /*================== FOR LARGE SCREENS ==================*/
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-    .white-form-option-box {
-        min-width: 220px;
-        max-width: 220px;
-    }
     .container{
-        max-width: 760px;
-        min-width: 760px;
+        max-width: 760px !important;
+        min-width: 760px !important;
+    }
+    .white-form-option-box {
+        min-width: 220px !important;
+        max-width: 220px !important;
     }
     .form-group{
         .valid_input_icon{
@@ -208,20 +208,12 @@ a{
 @media only screen and (min-width: 768px) {
     // FOR SMALL DEVICES
     .container{
-        max-width: 760px;
-        min-width: 760px;
-    }
-    .d-flex {
-        flex-direction: row !important;
-    }
-    .white-form-option-box {
-        min-width: 98%;
-        max-width: 98%;
-        align-items: center;
+        max-width: 760px !important;
+        min-width: 760px !important;
     }
     .form-group{
         .input-field{
-            width: 98% !important;
+            width: 98%;
         }
         .valid_input_icon{
             position: fixed;
@@ -233,12 +225,13 @@ a{
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-    .d-flex {
-        flex-direction: row !important;
+    .container{
+        max-width: 100%;
+        min-width: 100% ;
     }
     .white-form-option-box {
-        min-width: 98%;
-        max-width: 98%;
+        min-width: 44% ;
+        max-width: 44% ;
         align-items: center;
     }
     .form-group{
@@ -257,8 +250,8 @@ a{
 @media only screen and (max-width: 600px) {
     // FOR SMALL DEVICES
     .container{
-        max-width: 100% !important;
-        min-width: 100% !important;
+        max-width: 100% ;
+        min-width: 100% ;
     }
     .d-flex {
         flex-direction: row !important;
