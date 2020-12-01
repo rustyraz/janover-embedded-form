@@ -185,7 +185,8 @@ a{
 /*=====  FLEX BOX ====*/
 
 /*================== FOR LARGE SCREENS ==================*/
-@media only screen and (min-width: 768px) {
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
     .white-form-option-box {
         min-width: 220px;
         max-width: 220px;
@@ -194,11 +195,66 @@ a{
         max-width: 760px;
         min-width: 760px;
     }
+    .form-group{
+        .valid_input_icon{
+            right: 12px !important;
+            top: 2.4rem;
+        }
+    }
 }
 /*================== FOR LARGE SCREENS ==================*/
 
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    // FOR SMALL DEVICES
+    .container{
+        max-width: 760px;
+        min-width: 760px;
+    }
+    .d-flex {
+        flex-direction: row !important;
+    }
+    .white-form-option-box {
+        min-width: 98%;
+        max-width: 98%;
+        align-items: center;
+    }
+    .form-group{
+        .input-field{
+            width: 98% !important;
+        }
+        .valid_input_icon{
+            position: fixed;
+            //right: 20px !important;
+            top: 2.4rem;
+        }
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .d-flex {
+        flex-direction: row !important;
+    }
+    .white-form-option-box {
+        min-width: 98%;
+        max-width: 98%;
+        align-items: center;
+    }
+    .form-group{
+        .input-field{
+            width: 98% !important;
+        }
+        .valid_input_icon{
+            position: fixed;
+            right: 12px !important;
+            top: 2.4rem;
+        }
+    }
+}
+
 /*============== SMALL SCREEN =========*/
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
     // FOR SMALL DEVICES
     .container{
         max-width: 100% !important;
@@ -217,10 +273,27 @@ a{
         .input-field{
             width: 98% !important;
         }
+        .valid_input_icon{
+            position: fixed;
+            right: 12px !important;
+            top: 2.3rem;
+        }
     }
 
 }
 /*============== SMALL SCREEN =========*/
+
+// /* Extra small devices (phones, 600px and down) */
+// @media only screen and (max-width: 600px) {}
+
+// /* Small devices (portrait tablets and large phones, 600px and up) */
+// @media only screen and (min-width: 600px) {}
+
+// /* Large devices (laptops/desktops, 992px and up) */
+// @media only screen and (min-width: 992px) {}
+
+// /* Extra large devices (large laptops and desktops, 1200px and up) */
+// @media only screen and (min-width: 1200px) {}
 
 /*============= FORM ELEMENTS ==============*/
 
@@ -238,7 +311,7 @@ a{
         border-radius: 10px;
         width: 300px;
         height: 61px;
-        margin: 0.5rem;
+        margin: 0.2rem;
         display: block;
         font-size: 17px;
         font-weight: 600;
@@ -246,8 +319,8 @@ a{
     }
     .prepend_label{
         position: absolute;
-        top: 3.7rem;
-        left: 1.9rem;
+        top: 3.5rem;
+        left: 1.5rem;
         font-size: 15px;
         color: #{$grey};
         font-weight: bold;
@@ -257,7 +330,6 @@ a{
         background-image: url('~@/assets/valid-input-combined-shape.png');
         background-repeat: no-repeat;
         right: 16px;
-        top: 2.6rem;
         border-radius: 0px 8px;
         color: #{$orange};
         padding-right: 0.2rem;
