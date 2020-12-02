@@ -5,7 +5,7 @@
       <div class="d-flex justify-content--space-between">
         <div 
             v-for="purpose in purposes" :key="purpose.value"
-            class="text-center white--bg dark-blue--text ma-3 d-flex-rows white-form-option-box"
+            class="text-center white--bg dark-blue--text d-flex-rows white-form-option-box"
             @click="nextStep(purpose)"
         >
             {{purpose.title}}

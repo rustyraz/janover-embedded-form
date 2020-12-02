@@ -5,7 +5,7 @@
       <div class="d-flex justify-content--space-between">
         <div 
             v-for="property in propertyTypes" :key="property.value"
-            class="text-center white--bg dark-blue--text ma-3 d-flex-rows white-form-option-box"
+            class="text-center white--bg dark-blue--text d-flex-rows white-form-option-box"
             @click="nextStep(property)"
         >
             {{property.title}}

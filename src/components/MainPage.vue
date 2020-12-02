@@ -25,7 +25,7 @@
       <button v-show="step != 2" :disabled="!validateStep" @click="nextStep" class="btn rounded-btn btn--orange orange--bg white--text">Next Step > </button>
     </section>
 
-    <p class="mt-5 grey--text fs--xs">
+    <p class="mt-5 grey--text fs--xs" v-show="false">
       The final form: <br>
       {{form}}
     </p>

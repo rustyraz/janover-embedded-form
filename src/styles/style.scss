@@ -169,7 +169,6 @@ a{
     //max-width: 220px;
     height: 74px;
     font-size: 15px;
-    margin: 0.5rem;
     padding: 1.5rem;
     font-weight: 600;
     object-fit: contain;
@@ -185,23 +184,54 @@ a{
 /*=====  FLEX BOX ====*/
 
 /*================== FOR LARGE SCREENS ==================*/
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-    .container{
-        max-width: 760px !important;
-        min-width: 760px !important;
-    }
-    .white-form-option-box {
-        min-width: 220px !important;
-        max-width: 220px !important;
-    }
-    .form-group{
-        .valid_input_icon{
-            right: 12px !important;
-            top: 2.4rem;
-        }
-    }
-}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+// @media only screen and (min-width: 1200px) {
+//     .container{
+//         max-width: 760px !important;
+//         min-width: 760px !important;
+//     }
+    
+//     .d-flex {
+//         flex-direction: column !important;
+//     }
+//     // .white-form-option-box {
+//     //     min-width: 220px !important;
+//     //     max-width: 220px !important;
+//     //     margin: 2rem !important;
+        
+//     // }
+//     .form-group{
+//         width: 44% !important;
+//         .valid_input_icon{
+//             right: 12px !important;
+//             top: 2.4rem;
+//         }
+//     }
+// }
+// /* Large devices (laptops/desktops, 992px and up) */
+// @media only screen and (min-width: 992px) {
+//     .container{
+//         max-width: 760px !important;
+//         min-width: 760px !important;
+//     }
+    
+//     .d-flex {
+//         flex-direction: column !important;
+//     }
+//     // .white-form-option-box {
+//     //     min-width: 220px !important;
+//     //     max-width: 220px !important;
+//     //     margin: 2rem !important;
+        
+//     // }
+//     .form-group{
+//         width: 44% !important;
+//         .valid_input_icon{
+//             right: 12px !important;
+//             top: 2.4rem;
+//         }
+//     }
+// }
 /*================== FOR LARGE SCREENS ==================*/
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -211,14 +241,17 @@ a{
         max-width: 760px !important;
         min-width: 760px !important;
     }
+    
+    
     .form-group{
+        width: 44% !important;
         .input-field{
-            width: 98%;
+            width: 98% !important;
         }
         .valid_input_icon{
             position: fixed;
             //right: 20px !important;
-            top: 2.4rem;
+            top: 2.35rem;
         }
     }
 }
@@ -230,36 +263,47 @@ a{
         min-width: 100% ;
     }
     .white-form-option-box {
+        min-width: 220px !important;
+        max-width: 220px !important;
+        margin: 0.7rem !important;
+    }
+    .white-form-option-box {
         min-width: 44% ;
         max-width: 44% ;
-        align-items: center;
     }
     .form-group{
+        width: 44% !important;
         .input-field{
             width: 98% !important;
         }
         .valid_input_icon{
             position: fixed;
-            right: 12px !important;
-            top: 2.4rem;
+            right: 13px !important;
+            top: 2.35rem;
         }
     }
 }
 
 /*============== SMALL SCREEN =========*/
 @media only screen and (max-width: 600px) {
+    .step-progressbar {
+        width: 98% !important;
+        left: 0 !important;
+    }
     // FOR SMALL DEVICES
     .container{
         max-width: 100% ;
-        min-width: 100% ;
+        min-width: 100% ;  
     }
     .d-flex {
         flex-direction: row !important;
+        justify-content: center;
     }
     .white-form-option-box {
-        min-width: 98%;
-        max-width: 98%;
-        align-items: center;
+        min-width: 97%;
+        max-width: 97%;
+        //align-items: center;
+        margin: 0.3rem;
     }
     .form-group{
         min-width: 98%;
@@ -269,7 +313,52 @@ a{
         .valid_input_icon{
             position: fixed;
             right: 12px !important;
-            top: 2.3rem;
+            top: 2.35rem;
+        }
+    }
+
+    .opaque--bg {
+        padding: 0.7rem !important;
+        margin: 0.5rem !important;
+
+        div.flex--1 {
+            flex-basis: 100%;
+        }
+    }
+
+    .google_btn{
+        max-height: 74px;
+        min-width: 100% !important;
+        margin: 1rem auto !important;
+        text-align: center;       
+    
+        .logo_section{
+            text-align: center;
+            background-color: #{$white};
+            border-radius: 8px 0px 0px 8px;
+            border: 1px solid #{$white};
+            padding: 1px;
+        }
+        .blue_section{
+            flex: 3;
+    
+            p {
+                margin: 0.9rem !important;
+            }
+        }
+    }
+
+    /*======== POP UP MODAL========*/
+    .popup-modal{   
+    
+        .popup-text-section{
+            max-width: 90vw !important;
+            min-width: 90vw !important;
+            height: 380px;
+            padding: 0.5rem !important;   
+            p {
+                margin: 0.8rem !important;
+            } 
         }
     }
 
@@ -371,6 +460,10 @@ a{
     list-style: none;
     display: flex;
     padding: 0;
+    position: absolute;
+    top: 2rem;
+    left: 25%;
+    width: 50%;
 
     li.active:before {
         border-color: #55b776;
@@ -449,7 +542,7 @@ a{
     margin: auto;
     // max-width: 760px;
     // min-width: 760px;
-    height: 100vh;
+    //height: 100vh;
 }
 
 /*========= GOOGLE BUTTON =========*/
