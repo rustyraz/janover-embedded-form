@@ -1,0 +1,576 @@
+@font-face {
+    font-family: "Poppins";
+    src: url("./fonts/Poppins-Light.ttf") format("truetype");
+    font-weight: 300;
+  }
+  
+  @font-face {
+    font-family: "Poppins";
+    src: url("./fonts/Poppins-Regular.ttf") format("truetype");
+    font-weight: 400;
+  }
+  
+  @font-face {
+    font-family: "Poppins";
+    src: url("./fonts/Poppins-Medium.ttf") format("truetype");
+    font-weight: 500;
+  }
+  
+  @font-face {
+    font-family: "Poppins";
+    src: url("./fonts/Poppins-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+  }
+@import '_variables';
+body {
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    background-color: #{$dark-blue};
+    color: #{$white};
+}
+body, button, input, textarea, p {
+    font-family: Poppins !important;
+    font-weight: 500;
+}
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+svg {
+    overflow: visible;
+}
+input {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: textfield;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 2px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+}
+.button {
+    background: #{$orange};
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #{white};
+    letter-spacing: 0;
+    text-align: center;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    min-width: 220px;
+    height: 60px;
+    transition: background .3s ease-in-out;
+}
+.button svg {
+    display: block;
+    margin-left: 10px;
+    fill: #{$white};
+}
+
+.app, .container {
+    background: #{$dark-blue};
+    color: #{$white};
+}
+.wrapper {
+    width: 1180px;
+    margin: 0 auto;
+    max-width: calc(100vw - 60px);
+}
+
+.container-multistep{
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*==============PROGRESS BAR=============*/
+
+.progress{
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 600px;
+}
+
+.progress__bar {
+    width: 100%;
+    height: 3px;
+    background: #{grey};
+    span{
+        background: #ec820e;
+        display: block;
+        height: 3px;
+        border-radius: 3px;
+    }
+}
+
+.progress__points {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    height: 3px;
+    left: 0;
+    width: 100%;
+}
+
+.progress__point{
+    width: 5px;
+    height: 5px;
+    background: #{$white};
+    border: 3px solid #{$grey};
+    border-radius: 100%;
+    box-sizing: content-box;
+}
+
+.progress__point.is-previous {
+    border-color: #{$orange};
+    background: #{$orange};
+}
+
+.progress__point.is-active {
+    border-color: #{$orange};
+    width: 7px;
+    height: 7px;
+}
+
+/*============= MULTI STEP =============*/
+.multistep-step{
+    padding-top: 50px;
+}
+
+.multistep-step__title {
+    font-weight: 500;
+    font-size: 36px;
+    color: #{$white};
+    letter-spacing: 0;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.multistep-step__subtitle {
+    font-size: 18px;
+    color: #{$grey};
+    letter-spacing: 0;
+    text-align: center;
+    line-height: 29px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.multistep-step__content {
+    padding-top: 35px;
+}
+.multistep-selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 700px;
+    margin: 0 auto;
+}
+
+.multistep-selector__option {
+    background: #{$white};
+    border: 1px solid #{$white};
+    box-shadow: 0 3px 26px 0 #{$light-blue};
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 74px;
+    cursor: pointer;
+    width: 220px;
+    transition: .3s ease-in-out;
+    position: relative;
+}
+.multistep-selector__option:hover {
+    border-color: #{$orange};
+    box-shadow: none;
+}
+.multistep-selector__option input {
+    display: none;
+}
+.multistep-selector__option span {
+    font-size: 15px;
+    color: #{$dark-blue};
+    letter-spacing: 0;
+    text-align: center;
+}
+
+.multistep-selector__option:nth-child(n+4) {
+    margin-top: 15px;
+}
+
+.multistep-selector__option.is-active .validator {
+    opacity: 1;
+}
+
+.multistep-selector__option .validator {
+    width: 25px;
+    height: 25px;
+    right: -1px;
+    top: -1px;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    background: #{$orange};
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 75%;
+    text-align: center;
+    color: #{$white};
+    padding-left: 2px;
+    padding-top: 3px;
+    svg{
+        fill: #{$white};
+    }
+}
+
+.multistep-step__buttons-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 60px;
+}
+.multistep-step .button-back{
+    text-decoration: none;
+    font-size: 14px;
+    color: #{$grey};
+    letter-spacing: 0;
+    transition: color .3s ease-in-out;
+}
+.multistep-step .button-back:hover{
+    color: #{$orange};
+}
+.multistep-step .button-back svg {
+    margin-right: 10px;
+    fill: #{$orange};
+}
+.multistep-step__buttons-wrap .button {
+    min-width: 144px;
+    height: 46px;
+    font-size: 14px;
+    margin-left: 30px;
+}
+
+/*============= MULTI STEP =============*/
+
+/*============ TOOL TIP =========*/
+.tooltip {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+}
+
+.tooltip__icon{
+    border-radius: 4px;
+    background: #{$light-blue};
+    font-size: small;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tooltip__body {
+    position: absolute;
+    background: #5684ff;
+    width: 288px;
+    padding: 20px 25px 25px;
+    border-radius: 5px;
+    bottom: 100%;
+    margin-bottom: 15px;
+    left: 0;
+    margin-left: -135px;
+    font-size: small;
+    p {
+        color: #{$white};
+        text-align: left;
+    }
+}
+
+.text-small {
+    font-size: 11px;
+    letter-spacing: 0;
+    line-height: 19px;
+}
+/*============ TOOL TIP =========*/
+
+/*=========== FORM GROUP ========*/
+.multistep-step__content>.form-group {
+    max-width: 240px;
+    margin: 0 auto;    
+    color: #{$dark-blue}
+}
+.form-group__input-wrap {
+    background: #{$white};
+    border: 1px solid #{$light-blue};
+    border-radius: 8px;
+    width: 100%;
+    height: 55px;
+    position: relative;
+    transition: border-color .3s ease-in-out;
+}
+.form-group__input-wrap.is-filled .form-group__currency {
+    opacity: 1;
+}
+.form-group__currency{
+    position: absolute;
+    left: 0;
+    width: 40px;
+    text-align: center;
+    font-size: 17px;
+    top: 0;
+    bottom: 0;
+    height: 20px;
+    margin: auto;
+    line-height: 18px;
+    opacity: .5;
+    pointer-events: none;
+}
+.form-group__currency+input {
+    padding-left: 32px!important;
+    font-size: 17px!important;
+}
+.form-group input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background: none;
+    width: 100%;
+    height: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    font-size: 14px;
+    border-radius: 8px;
+}
+.form-group .input-alert {
+    width: 25px;
+    height: 25px;
+    right: -1px;
+    top: -1px;
+    position: absolute;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    pointer-events: none;
+}
+.form-group__input-wrap.is-invalid .input-alert {
+    opacity: 1;
+    pointer-events: auto;
+}
+.form-group .input-alert__indicator {
+    width: 100%;
+    height: 100%;
+    background: #{$red};
+    border-top-right-radius: 8px;
+    border-bottom-left-radius: 75%;
+    text-align: center;
+    color: #{$white};
+    font-size: 10px;
+    line-height: 24px;
+    font-weight: 700;
+    padding-left: 2px;
+    padding-top: 1px;
+    cursor: pointer;
+}
+
+.form-group .input-alert__message {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-bottom: 14px;
+    width: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    transform: scale(.8);
+    opacity: 0;
+    transition: .3s ease-in-out;
+    pointer-events: none;
+}
+.columned-fields {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 620px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+}
+
+
+.columned-fields .form-group {
+    width: 300px;
+    padding-bottom: 0;
+    max-width: 100%;
+}
+.form-group:not(:last-child) {
+    padding-bottom: 14px;
+}
+
+/*============FORM INPUT============*/
+
+/*=====  FLEX BOX ====*/
+.d-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex--1 {
+    flex: 1;
+}
+
+.d-flex-rows {
+    box-sizing: border-box;
+    flex: 1;
+}
+
+.justify-content--space-between {
+    justify-content: space-between;
+}
+.justify-content--center {
+    justify-content: center;
+}
+
+.align-items--center{
+    align-items: center;
+}
+
+
+
+@media only screen and (max-width: 767px){
+   .container-multistep {
+        height: 800px;
+    } 
+    .wrapper {
+        max-width: calc(100vw - 40px);
+    }
+    .progress {
+        max-width: calc(100% - 80px);
+    }
+    .tooltip__body {
+        margin-left: -235px;
+    }
+    .multistep-step__subtitle {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    .multistep-selector {
+        display: block;
+        width: 288px;
+        margin: 0 auto;
+        max-width: 100%;
+    }
+    .multistep-selector__option {
+        width: 100% !important;
+        height: 60px;
+    }
+    .multistep-selector__option:nth-child(n+2) {
+        margin-top: 10px;
+    }
+    .form-group__currency {
+        line-height: 21px;
+        font-size: 17px;
+    }
+    .button {
+        font-size: 18px;
+    }
+    .columned-fields {
+        width: 288px;
+        max-width: 100%;
+        display: block;
+    }
+    .columned-fields+.text-small {
+        text-align: center;
+        max-width: 480px;
+        margin: 0 auto -20px;
+    }
+}
+
+@media only screen and (min-width: 768px) and (min-width: 992px) and (min-width: 1023px) and (min-width: 1200px) and (min-width: 1200px) and (max-width: 1239px){
+    .container-multistep {
+        height: 620px;
+    }
+    .wrapper {
+        width: 620px;
+    }
+    
+//     .multistep-selector__option {
+//         width: 184px important;
+//     }
+// }
+
+// @media only screen and (max-width: 1239px){
+    .multistep-step__title{
+        font-size: 28px;
+    }
+    .multistep-selector__option span {
+        font-size: 13px;
+    }
+    .multistep-step__content {
+        padding-top: 30px;
+    }
+    .multistep-selector {
+        width: 584px;
+    }
+    .multistep-selector__option {
+        width: 184px;
+    }
+    .form-group .input-alert__message {
+        align-items: flex-end;
+        left: auto;
+        right: -10px;
+    }
+    .multistep-step__buttons-wrap{
+        padding-top: 40px;
+    }
+    .multistep-step__buttons-wrap .button {
+        height: 46px;
+        font-size: 14px;
+        margin-left: 30px;
+    }
+    .columned-fields {
+        width: 580px;
+    }
+    .columned-fields .form-group {
+        width: 280px;
+    }
+}
+
+
