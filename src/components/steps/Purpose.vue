@@ -12,7 +12,7 @@
                 :class="setToActive(option.title)"
                 v-for="option in purposes " :key="option.value"
             >
-                <input type="radio" @change="nextStep" v-model="picked_purpose" name="propertyType" :value="option.title">
+                <input type="radio" @click="nextStep" v-model="picked_purpose" name="propertyType" :value="option.title">
                 <span >{{option.title}}</span>
                 <div class="validator">
                     <svg data-v-45f2ff0a="" width="6" height="8" viewBox="0 0 8 6"><path d="M7.707.285c.36.35.388.903.083 1.285l-.083.092L3.25 6 .293 3.122c-.39-.38-.39-.997 0-1.377.36-.35.928-.378 1.32-.08l.094.08L3.25 3.247 6.293.285c.36-.35.928-.378 1.32-.08l.094.08z"></path></svg>

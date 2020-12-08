@@ -1,6 +1,6 @@
 <template>
   <div class="multistep-step">
-      <h2 class="multistep-step__title">
+      <h2 class="multistep-step__title fs--36">
           Contact Details
       </h2>
       <p class="multistep-step__subtitle">
@@ -146,7 +146,7 @@ export default {
             }
         },
         showErrorIcon(name){
-            return this.invalidInputs.indexOf(name) > -1 ? 'is-invalid' : ''
+            return this.invalidInputs.indexOf(name) > -1 ? 'is-invalid' : 'is-valid'
         }
     },
 

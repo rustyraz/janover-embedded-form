@@ -1,29 +1,45 @@
 <template>
   <div class="wrapper">
+    <div class="top-progress" v-if="step != 1">
+          <div class="steps__progress ">
+            <div class="progress__bar">
+                <span :style="`width: ${progress_percent}%`"></span>
+            </div>
+            <div class="progress__points">
+              <span 
+                  class="progress__point" 
+                  v-for="point_step in totalSteps" :key="point_step"
+                  :class="getStepClass(point_step)"
+              ></span>
+            </div>
+          </div>
+    </div>
       <div class="steps">
           <div class="steps__progress progress">
-              <div class="progress__bar">
-                  <span :style="`width: ${progress_percent}%`"></span>
-              </div>
-              <div class="progress__points">
-                <span 
-                    class="progress__point" 
-                    v-for="point_step in totalSteps" :key="point_step"
-                    :class="getStepClass(point_step)"
-                ></span>
-              </div>
+            <!-- <div class="progress__bar">
+                <span :style="`width: ${progress_percent}%`"></span>
+            </div>
+            <div class="progress__points">
+              <span 
+                  class="progress__point" 
+                  v-for="point_step in totalSteps" :key="point_step"
+                  :class="getStepClass(point_step)"
+              ></span>
+            </div> -->
 
-            <property-type v-show="step === 1" @nextStep="nextStep" />
-            <purpose v-show="step === 2" @nextStep="nextStep" @previousStep="previousStep" />
-            <loan-amount v-show="step === 3" @nextStep="nextStep" @previousStep="previousStep" />
-            <contact-details v-show="step === 4" @nextStep="nextStep" @previousStep="previousStep" />
-            <thank-you v-show="step === 5" :name="form.name" @updateForm="updateForm"/>
+            <get-started v-show="step === 1" @nextStep="nextStep" />
+            <property-type v-show="step === 2" @nextStep="nextStep" />
+            <purpose v-show="step === 3" @nextStep="nextStep" @previousStep="previousStep" />
+            <loan-amount v-show="step === 4" @nextStep="nextStep" @previousStep="previousStep" />
+            <contact-details v-show="step === 5" @nextStep="nextStep" @previousStep="previousStep" />
+            <thank-you v-show="step === 6" :name="form.contactDetails? form.contactDetails.first_name : ''" @updateForm="updateForm"/>
           </div>
       </div>
   </div>
 </template>
 
 <script>
+import GetStarted from './steps/GetStarted'
 import PropertyType from './steps/Propertype'
 import Purpose from './steps/Purpose'
 import LoanAmount from './steps/LoanAmount'
@@ -31,11 +47,12 @@ import ContactDetails from './steps/ContactDetails'
 import ThankYou from './steps/ThankYou'
 export default {
     components: {
-        PropertyType,
-        Purpose,
-        LoanAmount,
-        ContactDetails,
-        ThankYou
+      GetStarted,
+      PropertyType,
+      Purpose,
+      LoanAmount,
+      ContactDetails,
+      ThankYou
     },
 data: () => ({
     step: 1,
