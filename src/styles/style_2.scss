@@ -27,6 +27,8 @@ body {
     -webkit-font-smoothing: antialiased;
     background-color: #{$dark-blue};
     color: #{$white};
+    position: relative;
+    height: 100vh;
 }
 body, button, input, textarea, p {
     font-family: Poppins !important;
@@ -650,6 +652,7 @@ input {
 .d-flex {
     display: flex;
     flex-wrap: wrap;
+    position: relative;
 }
 
 .flex--1 {
@@ -680,15 +683,12 @@ input {
     z-index: 20;
     position: absolute;
     top: 0;
-    display: flex;
+    left: 0;
+    right: 0;
     justify-content: center;
     align-items: center;
 
     .popup-text-section{
-        // position: absolute;        
-        // top: 50%;
-        // left: 50%;
-        // transform: translate(-50%,-50%);
         z-index: 41;
         border-radius: 13px;
         height: 380px;
@@ -757,7 +757,7 @@ input {
         max-height: 74px;
         min-width: 100% !important;
         margin: 1rem auto !important;
-        text-align: center;       
+        text-align: center;
     
         .logo_section{
             text-align: center;
@@ -772,7 +772,30 @@ input {
     
             p {
                 margin: 0.4rem !important;
+                text-align: center;
             }
+        }
+    }
+     /*======== POP UP MODAL========*/
+     .popup-modal{ 
+         display: flex;  
+         position: fixed;
+         top: 0;
+         justify-content: center;
+         align-items: center;
+    
+        .popup-text-section{
+            margin: 0 auto;
+            max-width: 90vw !important;
+            min-width: 90vw !important;
+            height: 380px;
+            padding: 0.5rem !important;   
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            p {
+                margin: 0.2rem !important;
+            } 
         }
     }
 }

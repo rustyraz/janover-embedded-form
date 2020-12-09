@@ -51,12 +51,12 @@
       </div>
 
       <!-- SECTION TO SHOW IF THE USER HAS ALREADY SELECTED A RATING -->
-      <div v-if="already_selected_rating" class="ml-3 mr-3 opaque--bg d-flex">
+      <div v-if="already_selected_rating" class="ml-3 mr-3 opaque--bg d-flex text-align--center">
           <div class="fs--15 p-2 text--white flex--1">
               Can you please share your 5 star experience by leaving us a Google Review?
           </div>
           <div class="flex--1 p-2">
-              <div class="google_btn d-flex" @click="show_popup = !show_popup">
+              <div class="google_btn d-flex" @click="openModal">
                   <div class="logo_section">
                       <p class="text--center ma-1">
                           <img :src="require('@/assets/google-icon_2.svg')" width="90%" alt="" > 
@@ -74,44 +74,6 @@
           </div>
       </div>
     </div>
-    <!-- POP UP MODAL -->
-      <div class="popup-modal d-flex" v-show="show_popup">
-          <div class="popup-text-section text--center white--bg p-2">
-              <p class="text--right mb-0 text-align--right">
-                  <a href="#" title="Close" @click.prevent="show_popup = !show_popup" class="fs--lg orange--text fw-5 mr-1 mt-0" >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
-                        <g fill="none" fill-rule="evenodd" stroke-linecap="round">
-                            <g stroke="#EC820E" stroke-width="2">
-                                <g>
-                                    <path d="M5 0L10 5.001 5 10" transform="translate(-957 -254) translate(958 255) matrix(-1 0 0 1 15 0)"/>
-                                    <path d="M0 0L5 5.001 0 10" transform="translate(-957 -254) translate(958 255)"/>
-                                </g>
-                            </g>
-                        </g>
-                    </svg>
-
-                  </a>
-              </p>
-              <h3 class="dark-blue--text fs--20 fw--500">Thanks for the positive feedback! <span class="orange--text fs--xl">☺️</span>  </h3>
-              <p class="dark-blue--text fs--md ma-3 fs-15">
-                Can you please share your 5 star experience by leaving us a Google Review?
-              </p>
-              <div class="google_btn d-flex">
-                  <div class="logo_section">
-                      <p class="text--center ma-1">
-                          <img :src="require('@/assets/google-icon_2.svg')" width="40px" alt=""> 
-                      </p>
-                     
-                  </div>
-                  <div class="blue_section white--text">
-                      <p class="">                          
-                      Click here to leave us a review on Google!
-                      </p>
-                  </div>
-                  
-              </div>
-          </div>
-      </div>
   </div>
 </template>
 
@@ -150,6 +112,9 @@ export default {
         updateForm(){
             this.$emit('updateForm', { prop: "rating", value: this.selected_stars})
             console.log(this.selected_stars)
+        },
+        openModal(){
+            this.$emit('openModal')
         }
     }
 }

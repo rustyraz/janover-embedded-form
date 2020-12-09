@@ -14,27 +14,19 @@
             </div>
           </div>
     </div>
-      <div class="steps">
-          <div class="steps__progress progress">
-            <!-- <div class="progress__bar">
-                <span :style="`width: ${progress_percent}%`"></span>
-            </div>
-            <div class="progress__points">
-              <span 
-                  class="progress__point" 
-                  v-for="point_step in totalSteps" :key="point_step"
-                  :class="getStepClass(point_step)"
-              ></span>
-            </div> -->
-
-            <get-started v-show="step === 1" @nextStep="nextStep" />
-            <property-type v-show="step === 2" @nextStep="nextStep" />
-            <purpose v-show="step === 3" @nextStep="nextStep" @previousStep="previousStep" />
-            <loan-amount v-show="step === 4" @nextStep="nextStep" @previousStep="previousStep" />
-            <contact-details v-show="step === 5" @nextStep="nextStep" @previousStep="previousStep" />
-            <thank-you v-show="step === 6" :name="form.contactDetails? form.contactDetails.first_name : ''" @updateForm="updateForm"/>
-          </div>
-      </div>
+    <div class="steps">
+        <div class="steps__progress progress">
+          <get-started v-show="step === 1" @nextStep="nextStep" />
+          <property-type v-show="step === 2" @nextStep="nextStep" />
+          <purpose v-show="step === 3" @nextStep="nextStep" @previousStep="previousStep" />
+          <loan-amount v-show="step === 4" @nextStep="nextStep" @previousStep="previousStep" />
+          <contact-details v-show="step === 5" @nextStep="nextStep" @previousStep="previousStep" />
+          <thank-you v-show="step === 6" @openModal="toggleModal" :name="form.contactDetails? form.contactDetails.first_name : ''" @updateForm="updateForm"/>
+        </div>
+    </div>
+    <!-- POP UP MODAL -->
+    <popup-modal v-if="showThankYouModal" @closeModal="toggleModal" />
+    <!-- POP UP MODAL -->
   </div>
 </template>
 
@@ -45,6 +37,7 @@ import Purpose from './steps/Purpose'
 import LoanAmount from './steps/LoanAmount'
 import ContactDetails from './steps/ContactDetails'
 import ThankYou from './steps/ThankYou'
+import PopupModal from './steps/PopupModal'
 export default {
     components: {
       GetStarted,
@@ -52,7 +45,8 @@ export default {
       Purpose,
       LoanAmount,
       ContactDetails,
-      ThankYou
+      ThankYou,
+      PopupModal
     },
 data: () => ({
     step: 1,
@@ -77,7 +71,8 @@ data: () => ({
       { value: 'purchase', title: "Purchase" },
       { value: 'refinance', title: "Refinance" },
       { value: 'construction', title: "Construction" }
-    ]
+    ],
+    showThankYouModal: false // Hide the popup modal by default
   }),
   computed: {
     progress_percent(){
@@ -117,6 +112,9 @@ data: () => ({
       if(val){
         this.form[val.prop] = val.value
       }
+    },
+    toggleModal(){
+      this.showThankYouModal = !this.showThankYouModal
     },
     nextStep(val){
         console.log(val)

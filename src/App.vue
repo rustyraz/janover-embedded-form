@@ -8,13 +8,11 @@
 </template>
 
 <script>
-import MainPage from '@/components/MainPage.vue'
 import MainForm from '@/components/MainForm.vue'
 
 export default {
   name: 'App',
   components: {
-    MainPage,
     MainForm
   }
 }
