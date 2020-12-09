@@ -1,7 +1,7 @@
 <template>
   <div class="multistep-step">
       <h2 class="multistep-step__title fs--36">
-          Property Type.
+          Property Type
           <div class="tooltip" @click="show_tool_tip = !show_tool_tip" @mouseenter="show_tool_tip = true" @mouseleave="show_tool_tip = false">
               <div class="tooltip__icon">
                   <svg data-v-4118cd26="" width="4" height="8" viewBox="0 0 5 8"><path d="M1.87 5.75c.45 0 .78.34.78.79 0 .44-.32.78-.78.78s-.82-.33-.82-.78.36-.79.82-.79zM1.95 0c1.13 0 2.24.68 2.24 1.88 0 1.59-1.81 1.52-1.81 2.52v.53H1.26V4.3c0-1.36 1.6-1.38 1.6-2.36 0-.44-.43-.78-.94-.78-.45 0-1.06.24-1.32.41L0 .63C.47.29 1.23 0 1.95 0z"></path></svg>

@@ -65,10 +65,10 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <p class="text-small">
+        <p class="fs--11 line-height--1-73">
             By clicking Get Started, I confirm that I have read and consent to the Terms of Use, Privacy Policy and receiving calls, including via cell phone, and messages, including emails, SMS, autodialed or pre-recorded calls for marketing purposes, from Janover Ventures ("JV") and its  partners using the information provided above and that I may opt out any time.
         </p>
+        </div>
     </div>
 
     <div class="multistep-step__buttons-wrap">

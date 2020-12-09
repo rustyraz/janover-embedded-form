@@ -73,8 +73,8 @@
               
           </div>
       </div>
-
-      <!-- POP UP MODAL -->
+    </div>
+    <!-- POP UP MODAL -->
       <div class="popup-modal d-flex" v-show="show_popup">
           <div class="popup-text-section text--center white--bg p-2">
               <p class="text--right mb-0 text-align--right">
@@ -112,7 +112,6 @@
               </div>
           </div>
       </div>
-    </div>
   </div>
 </template>
 
