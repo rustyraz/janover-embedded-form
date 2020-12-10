@@ -1,6 +1,6 @@
 <template>
-  <div class="multistep-step">
-      <h2 class="multistep-step__title fs--36">
+  <div class="multistep-step long-form-top-margin ">
+      <h2 class="multistep-step__title  long-form-top-margin">
           Contact Details
       </h2>
       <p class="multistep-step__subtitle">

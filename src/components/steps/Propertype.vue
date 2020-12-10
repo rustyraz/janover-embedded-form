@@ -1,6 +1,6 @@
 <template>
-  <div class="multistep-step">
-      <h2 class="multistep-step__title fs--36">
+  <div class="multistep-step long-form-top-margin">
+      <h2 class="multistep-step__title fs--36 ">
           Property Type
           <div class="tooltip" @click="show_tool_tip = !show_tool_tip" @mouseenter="show_tool_tip = true" @mouseleave="show_tool_tip = false">
               <div class="tooltip__icon">

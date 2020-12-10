@@ -1,5 +1,5 @@
 <template>
-  <div class="multistep-step">
+  <div class="multistep-step  long-form-top-margin">
       
       <div class="text-align--center round-orange-div">
        <svg width="248px" height="248px" viewBox="0 0 248 248" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -31,7 +31,7 @@
           Thank you, {{name}}. <br>
           Your Information Has Been Received!
       </h2>
-      <p class="multistep-step__subtitle fs--20" v-if="!already_selected_rating">
+      <p class="multistep-step__subtitle fs--15" v-if="!already_selected_rating">
           While you're waiting for us to get back to you with an industrial property mortgage quote... <br>
           Have you had a 5 star experience with us? Click below.          
       </p>
@@ -64,7 +64,7 @@
                      
                   </div>
                   <div class="blue_section white--text">
-                      <p class="fs--13">                          
+                      <p class="">                          
                         Click here to leave us a review on Google!
                       </p>
                   </div>

@@ -233,7 +233,7 @@ input {
     position: relative;
     max-height: 74px;
     width: 300px;
-    margin: 0 auto;
+    margin: 1rem auto;
     text-align: center;
 
     .logo_section{
@@ -676,7 +676,7 @@ input {
 }
 
 /*======= MODAL ==========*/
-.popup-modal{
+.popup-modal {
     background-color:rgba(9, 25, 43, 0.8);
     width:      100%;
     height:     100%; 
@@ -688,24 +688,54 @@ input {
     justify-content: center;
     align-items: center;
 
-    .popup-text-section{
+    .popup-text-section {
         z-index: 41;
-        border-radius: 13px;
-        height: 380px;
         text-align: center;
-        width: 600px;
+        width: 620px;
+        height: 384px;
+        object-fit: contain;
+        border-radius: 13px;
+        box-shadow: 0 3px 26px 0 rgba(79, 90, 143, 0.08);
     }
+
 }
+// .center-child{
+//     position: relative;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+
+//     div.centered-child {
+//       margin: 0 auto;
+//       display: inline-block;      
+//     }
+// }
 /*======= MODAL ==========*/
 
 
 
 @media only screen and (max-width: 767px){
+    body{
+        height: 90vh;
+        min-height: -webkit-fill-available;
+    }
+    html{
+        height: -webkit-fill-available;
+    }
+        /*=========== FONT SIZES =========*/
+    .fs--11 { font-size: 10px !important }
+    .fs--13 { font-size: 14px !important; }
+    .fs--15 { font-size: 18px !important; }
+    .fs--18 { font-size: 22px !important; }
+    .fs--20 { font-size: 26px !important; }
+    .fs--34 { font-size: 30px !important; }
+    .fs--36 { font-size: 34px !important; }
+    /*=========== FONT SIZES =========*/
     .top-progress{
         width: 80%;
     }
     .progress{
-        margin-top: 100px;
+        // margin-top: 100px;
     }
    .container-multistep {
         height: 800px;
@@ -719,9 +749,16 @@ input {
     .tooltip__body {
         margin-left: -235px;
     }
+    .long-form-top-margin{
+        margin-top: 150px;
+    }
+    .multistep-step__title{
+        font-size: 34px !important;
+    }
     .multistep-step__subtitle {
         max-width: 320px;
         margin: 0 auto;
+        font-size: 16px !important;
     }
     .multistep-selector {
         display: block;
@@ -755,7 +792,7 @@ input {
     }
     .google_btn{
         max-height: 74px;
-        min-width: 100% !important;
+        width: 240px !important;
         margin: 1rem auto !important;
         text-align: center;
     
@@ -776,23 +813,36 @@ input {
             }
         }
     }
+    .tooltip__body::after {
+        content: " ";
+        position: absolute;
+        top: 100%; /* At the bottom of the tooltip */
+        left: 85%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #{$white} transparent transparent transparent;
+      }
      /*======== POP UP MODAL========*/
      .popup-modal{ 
          display: flex;  
          position: fixed;
          top: 0;
+         right: 0;
+         left: 0;
          justify-content: center;
          align-items: center;
     
         .popup-text-section{
             margin: 0 auto;
-            max-width: 90vw !important;
-            min-width: 90vw !important;
+            margin-left: 2rem;
+            width: 85vw;
             height: 380px;
             padding: 0.5rem !important;   
             position: relative;
             justify-content: center;
             align-items: center;
+                font-size: 13px;
             p {
                 margin: 0.2rem !important;
             } 
@@ -811,7 +861,7 @@ input {
         width: 80%;
     }
     .progress{
-        margin-top: 108px;
+        //margin-top: 108px;
     }
     
 //     .multistep-selector__option {
@@ -820,6 +870,10 @@ input {
 // }
 
 // @media only screen and (max-width: 1239px){
+    
+    .long-form-top-margin{
+        margin-top: 100px
+    }
     .multistep-step__title{
         font-size: 28px;
     }

@@ -1,6 +1,6 @@
 <template>
   <div class="multistep-step">
-      <h2 class="multistep-step__title grey--text fs--36">
+      <h2 class="multistep-step__title grey--text">
           Get pricing and terms 
           <br/>
           <span class="white--text">your bank can't compete</span> with.
