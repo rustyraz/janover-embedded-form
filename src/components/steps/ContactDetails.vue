@@ -1,6 +1,6 @@
 <template>
-  <div class="multistep-step long-form-top-margin ">
-      <h2 class="multistep-step__title  long-form-top-margin">
+  <div class="multistep-step long-form-top-margin">
+      <h2 class="multistep-step__title long-form-top-margin">
           Contact Details
       </h2>
       <p class="multistep-step__subtitle">
@@ -65,7 +65,7 @@
                     </div>
                 </div>
             </div>
-        <p class="fs--11 line-height--1-73">
+        <p class="fs--11 line-height--1-73 mt-1">
             By clicking Get Started, I confirm that I have read and consent to the Terms of Use, Privacy Policy and receiving calls, including via cell phone, and messages, including emails, SMS, autodialed or pre-recorded calls for marketing purposes, from Janover Ventures ("JV") and its  partners using the information provided above and that I may opt out any time.
         </p>
         </div>

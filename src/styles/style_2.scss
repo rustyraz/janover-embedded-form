@@ -288,7 +288,7 @@ input {
 .progress__bar {
     width: 100%;
     height: 3px;
-    background: #{grey};
+    background: #{$light-blue};
     span{
         background: #ec820e;
         display: block;
@@ -303,6 +303,7 @@ input {
     justify-content: space-between;
     align-items: center;
     position: absolute;
+
     top: 0;
     height: 3px;
     left: 0;
@@ -312,8 +313,8 @@ input {
 .progress__point{
     width: 5px;
     height: 5px;
-    background: #{$white};
-    border: 3px solid #{$grey};
+    background: #{$dark-blue};
+    border: 2px solid #{$light-blue};
     border-radius: 100%;
     box-sizing: content-box;
 }
@@ -325,6 +326,7 @@ input {
 
 .progress__point.is-active {
     border-color: #{$orange};
+    background-color: #{$white};
     width: 7px;
     height: 7px;
 }
@@ -353,10 +355,10 @@ input {
 }
 .multistep-step__subtitle {
     font-size: 18px;
-    color: #{$grey};
+    color: #{$white};
     letter-spacing: 0;
     text-align: center;
-    line-height: 29px;
+    line-height: 1.61;
     max-width: 600px;
     margin: 0 auto;
 }
@@ -482,11 +484,17 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
+    svg {
+        fill: #{$white}
+    }
 }
 
 .tooltip__icon:hover{
     background-color: #{$white};
     cursor: pointer;
+    svg {
+        fill: #{$dark-blue}
+    }
 }
 
 .tooltip__body {
@@ -543,6 +551,12 @@ input {
 .form-group__input-wrap.is-filled .form-group__currency {
     opacity: 1;
 }
+.form-group__label{
+    font-size: 13px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    display: block;
+}
 .form-group__currency{
     position: absolute;
     left: 0;
@@ -592,6 +606,10 @@ input {
 .form-group__input-wrap.is-invalid .input-alert {
     opacity: 1;
     pointer-events: auto;
+}
+.form-group__input-wrap.is-valid .input-valid {
+    opacity: 1;
+    fill: #{$orange};
 }
 .form-group .input-alert__indicator {
     width: 100%;
@@ -699,6 +717,9 @@ input {
     }
 
 }
+.x-close-icon:hover{
+    opacity: 0.7;
+}
 // .center-child{
 //     position: relative;
 //     display: flex;
@@ -766,9 +787,16 @@ input {
         margin: 0 auto;
         max-width: 100%;
     }
+    
+    .multistep-step__content {
+        padding-top: 20px;
+    }
     .multistep-selector__option {
         width: 100% !important;
         height: 60px;
+    }
+    .multistep-step__buttons-wrap{
+        padding-top: 30px;
     }
     .multistep-selector__option:nth-child(n+2) {
         margin-top: 10px;
@@ -784,6 +812,9 @@ input {
         width: 288px;
         max-width: 100%;
         display: block;
+        p {
+            text-align: center;
+        }
     }
     .columned-fields+.text-small {
         text-align: center;
@@ -860,9 +891,6 @@ input {
     .top-progress{
         width: 80%;
     }
-    .progress{
-        //margin-top: 108px;
-    }
     
 //     .multistep-selector__option {
 //         width: 184px important;
@@ -881,7 +909,7 @@ input {
         font-size: 13px;
     }
     .multistep-step__content {
-        padding-top: 30px;
+        padding-top: 20px;
     }
     .multistep-selector {
         width: 584px;
@@ -895,7 +923,7 @@ input {
         right: -10px;
     }
     .multistep-step__buttons-wrap{
-        padding-top: 40px;
+        padding-top: 30px;
     }
     .multistep-step__buttons-wrap .button {
         height: 46px;
@@ -904,6 +932,9 @@ input {
     }
     .columned-fields {
         width: 580px;
+        p {
+            text-align: center;
+        }
     }
     .columned-fields .form-group {
         width: 280px;
