@@ -44,6 +44,18 @@ a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, bo
     box-sizing: border-box;
 }
 
+a {
+    color: #{$white};
+    &:hover{
+        color: #{$orange}
+    }
+}
+
+.google_link{
+    color: #{$white};
+    text-decoration: none !important;
+}
+
 /*=========== FONT SIZES =========*/
 .fs--11 { font-size: 11px !important }
 .fs--13 { font-size: 13px !important; }
@@ -182,7 +194,9 @@ input {
     margin: 0 auto;
     max-width: calc(100vw - 60px);
 }
-
+.long-form-top-margin{
+    margin-top: 2rem;
+}
 .container-multistep{
     height: 700px;
     display: flex;
@@ -607,9 +621,8 @@ input {
     opacity: 1;
     pointer-events: auto;
 }
-.form-group__input-wrap.is-valid .input-valid {
+.form-group__input-wrap.is-valid .input-alert {
     opacity: 1;
-    fill: #{$orange};
 }
 .form-group .input-alert__indicator {
     width: 100%;
@@ -625,6 +638,17 @@ input {
     padding-left: 2px;
     padding-top: 1px;
     cursor: pointer;
+    svg{
+        fill: #{$white}
+    }
+}
+
+.is-invalid .input-alert__indicator {
+    background: #{$red};
+}
+
+.is-valid .input-alert__indicator {
+    background: #{$orange};
 }
 
 .form-group .input-alert__message {
@@ -900,7 +924,7 @@ input {
 // @media only screen and (max-width: 1239px){
     
     .long-form-top-margin{
-        margin-top: 100px
+        margin-top: 150px
     }
     .multistep-step__title{
         font-size: 28px;

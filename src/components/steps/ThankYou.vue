@@ -70,7 +70,6 @@
                   </div>
                   
               </div>
-              
           </div>
       </div>
     </div>
@@ -89,7 +88,8 @@ export default {
     data: () => ({
         selected_stars: 0, //by default we set the star rating to 3,
         already_selected_rating: false,
-        show_popup: false
+        show_popup: false,
+        review_url: 'https://g.page/janover-ventures'
     }),
     methods: {
         selectStar(value){
@@ -115,6 +115,7 @@ export default {
         },
         openModal(){
             this.$emit('openModal')
+            window.open(this.review_url, '_blank')
         }
     }
 }

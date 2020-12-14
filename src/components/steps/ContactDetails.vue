@@ -15,7 +15,8 @@
                     <input type="text" id="firstName" placeholder="John" v-model.trim="form.first_name" @keyup="validateInput('first_name')" >
                     <div class="form-group__alert input-alert">
                         <div class="input-alert__indicator">
-                            <svg width="2" height="10" viewBox="0 0 2 10"><path d="M1 8c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1zm0-8c.513 0 .936.386 1 1v5c0 .552-.448 1-1 1-.513 0-.936-.386-1-1V1c0-.552.448-1 1-1z"></path></svg>
+                            <svg v-if="showErrorIcon('first_name') === 'is-valid'" data-v-45f2ff0a="" width="6" height="8" viewBox="0 0 8 6"><path d="M7.707.285c.36.35.388.903.083 1.285l-.083.092L3.25 6 .293 3.122c-.39-.38-.39-.997 0-1.377.36-.35.928-.378 1.32-.08l.094.08L3.25 3.247 6.293.285c.36-.35.928-.378 1.32-.08l.094.08z"></path></svg>
+                            <svg v-if="showErrorIcon('first_name') === 'is-invalid'" width="2" height="10" viewBox="0 0 2 10"><path d="M1 8c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1zm0-8c.513 0 .936.386 1 1v5c0 .552-.448 1-1 1-.513 0-.936-.386-1-1V1c0-.552.448-1 1-1z"></path></svg>
                         </div>
                         <div class="input-alert__message">
                             <p >Please, enter your first name</p>
@@ -29,7 +30,8 @@
                     <input type="text" id="lastName" placeholder="Appleseed" autocomplete="family-name" v-model.trim="form.last_name" @keyup="validateInput('last_name')">
                     <div class="form-group__alert input-alert">
                         <div class="input-alert__indicator">
-                            <svg width="2" height="10" viewBox="0 0 2 10"><path d="M1 8c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1zm0-8c.513 0 .936.386 1 1v5c0 .552-.448 1-1 1-.513 0-.936-.386-1-1V1c0-.552.448-1 1-1z"></path></svg>
+                            <svg v-if="showErrorIcon('last_name') === 'is-valid'" data-v-45f2ff0a="" width="6" height="8" viewBox="0 0 8 6"><path d="M7.707.285c.36.35.388.903.083 1.285l-.083.092L3.25 6 .293 3.122c-.39-.38-.39-.997 0-1.377.36-.35.928-.378 1.32-.08l.094.08L3.25 3.247 6.293.285c.36-.35.928-.378 1.32-.08l.094.08z"></path></svg>
+                            <svg v-if="showErrorIcon('last_name') === 'is-invalid'" width="2" height="10" viewBox="0 0 2 10"><path d="M1 8c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1zm0-8c.513 0 .936.386 1 1v5c0 .552-.448 1-1 1-.513 0-.936-.386-1-1V1c0-.552.448-1 1-1z"></path></svg>
                         </div>
                         <div class="input-alert__message">
                             <p >Please, enter your last name</p>
@@ -43,7 +45,8 @@
                     <input type="tel" id="phoneNumber" placeholder="(123) 456 7890" autocomplete="tel-national" inputmode="numeric" v-model.trim="form.phone_number" @keyup="validateInput('phone_number')">
                     <div class="form-group__alert input-alert">
                         <div class="input-alert__indicator">
-                            <svg width="2" height="10" viewBox="0 0 2 10"><path d="M1 8c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1zm0-8c.513 0 .936.386 1 1v5c0 .552-.448 1-1 1-.513 0-.936-.386-1-1V1c0-.552.448-1 1-1z"></path></svg>
+                            <svg v-if="showErrorIcon('phone_number') === 'is-valid'" data-v-45f2ff0a="" width="6" height="8" viewBox="0 0 8 6"><path d="M7.707.285c.36.35.388.903.083 1.285l-.083.092L3.25 6 .293 3.122c-.39-.38-.39-.997 0-1.377.36-.35.928-.378 1.32-.08l.094.08L3.25 3.247 6.293.285c.36-.35.928-.378 1.32-.08l.094.08z"></path></svg>
+                            <svg v-if="showErrorIcon('phone_number') === 'is-invalid'" width="2" height="10" viewBox="0 0 2 10"><path d="M1 8c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1zm0-8c.513 0 .936.386 1 1v5c0 .552-.448 1-1 1-.513 0-.936-.386-1-1V1c0-.552.448-1 1-1z"></path></svg>
                         </div>
                         <div class="input-alert__message">
                             <p >Please, enter a valid phone number</p>
@@ -57,7 +60,8 @@
                     <input type="email" id="email" placeholder="me@company.com" @keyup="validateInput('email')" v-model.trim="form.email">
                     <div class="form-group__alert input-alert">
                         <div class="input-alert__indicator">
-                            <svg width="2" height="10" viewBox="0 0 2 10"><path d="M1 8c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1zm0-8c.513 0 .936.386 1 1v5c0 .552-.448 1-1 1-.513 0-.936-.386-1-1V1c0-.552.448-1 1-1z"></path></svg>
+                            <svg v-if="showErrorIcon('email') === 'is-valid'" data-v-45f2ff0a="" width="6" height="8" viewBox="0 0 8 6"><path d="M7.707.285c.36.35.388.903.083 1.285l-.083.092L3.25 6 .293 3.122c-.39-.38-.39-.997 0-1.377.36-.35.928-.378 1.32-.08l.094.08L3.25 3.247 6.293.285c.36-.35.928-.378 1.32-.08l.094.08z"></path></svg>
+                            <svg v-if="showErrorIcon('email') === 'is-invalid'" width="2" height="10" viewBox="0 0 2 10"><path d="M1 8c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1zm0-8c.513 0 .936.386 1 1v5c0 .552-.448 1-1 1-.513 0-.936-.386-1-1V1c0-.552.448-1 1-1z"></path></svg>
                         </div>
                         <div class="input-alert__message">
                             <p >Please, enter a valid email</p>
@@ -66,7 +70,9 @@
                 </div>
             </div>
         <p class="fs--11 line-height--1-73 mt-1">
-            By clicking Get Started, I confirm that I have read and consent to the Terms of Use, Privacy Policy and receiving calls, including via cell phone, and messages, including emails, SMS, autodialed or pre-recorded calls for marketing purposes, from Janover Ventures ("JV") and its  partners using the information provided above and that I may opt out any time.
+            By clicking Get Started, I confirm that I have read and consent to the 
+            <a href="https://www.janover.ventures/terms-of-use" target="_blank" class="link">Terms of Use</a> , 
+            <a href="https://www.janover.ventures/privacy" target="_blank" class="link">Privacy Policy</a> and receiving calls, including via cell phone, and messages, including emails, SMS, autodialed or pre-recorded calls for marketing purposes, from Janover Ventures ("JV") and its  partners using the information provided above and that I may opt out any time.
         </p>
         </div>
     </div>
@@ -146,7 +152,16 @@ export default {
             }
         },
         showErrorIcon(name){
-            return this.invalidInputs.indexOf(name) > -1 ? 'is-invalid' : 'is-valid'
+            const findProp = this.invalidInputs.indexOf(name)
+            if(findProp > -1){
+                return 'is-invalid'
+            }else if(this.form[name] !==""){
+                return 'is-valid'
+            }else {
+                return ''
+            }
+
+            //return this.invalidInputs.indexOf(name) > -1 ? 'is-invalid' : 'is-valid'
         }
     },
 

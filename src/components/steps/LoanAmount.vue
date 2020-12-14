@@ -13,7 +13,7 @@
         <div class="form-group" >
             <div 
                 class="form-group__input-wrap is-filled"
-                :class="errorFound ? 'is-invalid' :''"
+                :class="showErrorIcon()"
             >
                 <div class="form-group__currency">$</div>
                 <input @keyup="validate" type="text" id="loanAmount" v-model.trim="loan_amount" placeholder="1,000,000" inputmode="numeric">
@@ -23,7 +23,8 @@
                     @mouseleave="showErrorMessage = false"
                 >
                     <div class="input-alert__indicator">
-                        <svg width="2" height="10" viewBox="0 0 2 10"><path d="M1 8c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1zm0-8c.513 0 .936.386 1 1v5c0 .552-.448 1-1 1-.513 0-.936-.386-1-1V1c0-.552.448-1 1-1z"></path></svg>
+                        <svg v-if="!errorFound" data-v-45f2ff0a="" width="6" height="8" viewBox="0 0 8 6"><path d="M7.707.285c.36.35.388.903.083 1.285l-.083.092L3.25 6 .293 3.122c-.39-.38-.39-.997 0-1.377.36-.35.928-.378 1.32-.08l.094.08L3.25 3.247 6.293.285c.36-.35.928-.378 1.32-.08l.094.08z"></path></svg>
+                        <svg v-if="errorFound" width="2" height="10" viewBox="0 0 2 10"><path d="M1 8c.552 0 1 .448 1 1s-.448 1-1 1-1-.448-1-1 .448-1 1-1zm0-8c.513 0 .936.386 1 1v5c0 .552-.448 1-1 1-.513 0-.936-.386-1-1V1c0-.552.448-1 1-1z"></path></svg>
                     </div>
                     <div class="input-alert__message" v-show="showErrorMessage">
                         <p >Please, enter a valid value</p>
@@ -56,7 +57,7 @@ export default {
     methods: {
         nextStep(){
             if(!this.errorFound && this.firstInputDone){                
-            this.$emit('nextStep', { prop: "loanAmount", value: this.loan_amount})
+                this.$emit('nextStep', { prop: "loanAmount", value: this.loan_amount})
             }else{
                 this.errorFound = true
             }
@@ -74,6 +75,17 @@ export default {
             }else {
                 this.errorFound = false
             }
+        },
+        showErrorIcon(){
+            if(this.errorFound){
+                return 'is-invalid'
+            }else if(this.loan_amount !==""){
+                return 'is-valid'
+            }else {
+                return ''
+            }
+
+            //return this.invalidInputs.indexOf(name) > -1 ? 'is-invalid' : 'is-valid'
         }
     },
 
