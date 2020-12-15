@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import { submitForm } from '../api/formSubmitApi'
 import GetStarted from './steps/GetStarted'
 import PropertyType from './steps/Propertype'
 import Purpose from './steps/Purpose'
@@ -94,30 +95,30 @@ data: () => ({
     },
     validateStep(){
         return true
-    //   switch (this.step) {
-    //     case 3:
-    //       // If the amount is empty or zero then next step will be invalid
-    //       return this.form.loanAmount > 0 ? true : false
-    //     case 4:
-    //       //must accept terms
-    //       return (this.form.contactDetails && this.form.contactDetails.accepted_terms )? true : false
-    //     default:
-    //       return true
-    //   }
     }
   },
   methods: {
-    updateForm(val){
+    async updateForm(val){
       // The val object is OPTIONAL but should have this structure { prop: 'name_of_prop_in_FORM', value: 'value_to_change'}
-      if(val){
+      if(val && val.prop){
         this.form[val.prop] = val.value
+      }
+      //WE POST THE DATA ONCE THE USER SENDS THE RATING
+      if(val.prop === 'rating'){
+        console.log(this.form)
+        // PENDING ADDING OF THE API URL IN THE 
+        try {
+          await submitForm(this.form)
+        } catch (error) {
+          console.log(error)
+        }
+        
       }
     },
     toggleModal(){
       this.showThankYouModal = !this.showThankYouModal
     },
     nextStep(val){
-        console.log(val)
       if(this.validateStep){
         this.step < this.totalSteps ? this.step++ : this.totalSteps
 

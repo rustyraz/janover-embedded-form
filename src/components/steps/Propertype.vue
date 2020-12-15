@@ -22,7 +22,7 @@
                 :class="setToActive(option.title)"
                 v-for="option in propertyTypes " :key="option.value"
             >
-                <input @click="nextStep" type="radio" v-model="picked_property_type" name="propertyType" :value="option.title">
+                <input @click="nextStep(option.title)" type="radio" v-model="picked_property_type" name="propertyType" :value="option.title">
                 <span >{{option.title}}</span>
                 <div class="validator">
                     <svg data-v-45f2ff0a="" width="6" height="8" viewBox="0 0 8 6"><path d="M7.707.285c.36.35.388.903.083 1.285l-.083.092L3.25 6 .293 3.122c-.39-.38-.39-.997 0-1.377.36-.35.928-.378 1.32-.08l.094.08L3.25 3.247 6.293.285c.36-.35.928-.378 1.32-.08l.094.08z"></path></svg>
@@ -52,7 +52,8 @@ export default {
         }
     },
     methods: {
-        nextStep(){
+        nextStep(val){
+            this.picked_property_type = val
             this.$emit('nextStep', { prop: "propertyType", value: this.picked_property_type})
         },
         setToActive(value){

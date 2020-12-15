@@ -111,7 +111,6 @@ export default {
         },
         updateForm(){
             this.$emit('updateForm', { prop: "rating", value: this.selected_stars})
-            console.log(this.selected_stars)
         },
         openModal(){
             this.$emit('openModal')
