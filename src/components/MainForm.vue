@@ -105,8 +105,7 @@ data: () => ({
       }
       //WE POST THE DATA ONCE THE USER SENDS THE RATING
       if(val.prop === 'rating'){
-        console.log(this.form)
-        // PENDING ADDING OF THE API URL IN THE 
+        // PENDING ADDING OF THE API URL IN THE ~src/api/httpClient to change the post url
         try {
           await submitForm(this.form)
         } catch (error) {
