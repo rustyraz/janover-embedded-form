@@ -16,7 +16,7 @@
                 :class="showErrorIcon()"
             >
                 <div class="form-group__currency">$</div>
-                <input @keyup="validate" type="text" id="loanAmount" v-model.trim="loan_amount" placeholder="1,000,000" inputmode="numeric">
+                <input @keyup="validate" type="text" id="loanAmount" v-model.trim="loan_amount_formated" placeholder="1,000,000" inputmode="numeric">
                 <div 
                     class="form-group__alert input-alert"
                     @mouseover="showErrorMessage = true"
@@ -54,6 +54,17 @@ export default {
         firstInputDone: false,
         showErrorMessage: false
     }),
+    computed: {
+        loan_amount_formated: {
+            get(){
+                return this.loan_amount
+            },
+            set(newValue){
+                //this.loan_amount = isNaN(Number(newValue)) ? this.loan_amount : Number(newValue).toLocaleString()
+                this.loan_amount = newValue
+            }
+        }
+    },
     methods: {
         nextStep(){
             if(!this.errorFound && this.firstInputDone){                
@@ -70,6 +81,8 @@ export default {
         },
         validate(){
             this.firstInputDone = true
+
+            //this.errorFound = this.loan_amount ? false : true 
             if(isNaN(this.loan_amount) || !this.loan_amount){
                 this.errorFound = true
             }else {
@@ -88,6 +101,11 @@ export default {
             //return this.invalidInputs.indexOf(name) > -1 ? 'is-invalid' : 'is-valid'
         }
     },
+    filters: {
+        localCurrencyFormat: function(value){
+            return `$ ${value}`
+        }
+    }
 
 }
 </script>

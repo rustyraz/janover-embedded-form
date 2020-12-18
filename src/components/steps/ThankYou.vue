@@ -51,8 +51,8 @@
       </div>
 
       <!-- SECTION TO SHOW IF THE USER HAS ALREADY SELECTED A RATING -->
-      <div v-if="already_selected_rating" class="ml-3 mr-3 opaque--bg d-flex text-align--center">
-          <div class="fs--15 p-2 text--white flex--1">
+      <div v-if="already_selected_rating" class="ml-2 mr-2 opaque--bg d-flex text-align--center">
+          <div class="p-2 text--white flex--1">
               Can you please share your 5 star experience by leaving us a Google Review?
           </div>
           <div class="flex--1 p-2">
