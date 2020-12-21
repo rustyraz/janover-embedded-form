@@ -60,8 +60,8 @@ export default {
                 return this.loan_amount
             },
             set(newValue){
-                //this.loan_amount = isNaN(Number(newValue)) ? this.loan_amount : Number(newValue).toLocaleString()
-                this.loan_amount = newValue
+                newValue = (isNaN(parseFloat(newValue.replace(/,/g, ''))) ) ? '0' : newValue // handle empty
+                this.loan_amount = (parseFloat(newValue.replace(/,/g, ''))).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
             }
         }
     },
@@ -83,7 +83,8 @@ export default {
             this.firstInputDone = true
 
             //this.errorFound = this.loan_amount ? false : true 
-            if(isNaN(this.loan_amount) || !this.loan_amount){
+            //let onlydigits = /^-?[\d.]+(?:e-?\d+)?$/.test(this.loan_amount.replace(/,/g, ''))
+            if( parseFloat(this.loan_amount.replace(/,/g, '')) == 0 || !this.loan_amount){
                 this.errorFound = true
             }else {
                 this.errorFound = false
@@ -103,7 +104,7 @@ export default {
     },
     filters: {
         localCurrencyFormat: function(value){
-            return `$ ${value}`
+            return `$ ${value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
         }
     }
 
